@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Home page</title>
+    <script type="text/javascript" src="index.js"></script>
+</head>
+
+<body>
+    <div>
+        <h1>Home</h1>
+    </div>
+
+    <div id="loginDiv">
+        <input type="text" id="username" name="user_name" placeholder="Your username" required />
+        <input type="password" id="password" name="user_password" placeholder="Your password" required />
+        <button type="button" onclick="login()">Login</button>
+    </div>
+
+    <div id="mainDiv" style="display: none">
+        <button type="button" onclick="logout()">Logout</button>
+        <h3>Create New Event</h3>
+        <button type="button">New</button>
+        <h3>View Events</h3>
+        <button type="button" onclick="viewEvents()">
+            View Events
+        </button>
+    </div>
+</body>
+
+</html>
