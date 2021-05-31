@@ -19,7 +19,8 @@
 
     <div class="row" id="index_Header">
         <div class="row" id="index_Head"></div>
-        <div class="col-11"><h1 style="text-align: center">New Event</h1></div>
+        <div class="col-1"><button class="bi bi-file-plus"></button></div>
+        <div class="col-10"><h1 style="text-align: center">New Event</h1></div>
         <div class="col-1 align-self-center" id="logout_btn" style="display: none"><a class="btn btn-sm btn-secondary" style="width: 100%" onclick="logout()" role="button"><i class="bi bi-box-arrow-left"></i> Logout</a></div>
     </div>
 
@@ -28,59 +29,59 @@
     </div>
 
     <div class="row">
-        <form id="new_event" action="new_event.php" method="get">
+        <form id="new_event" action="new_event.php" method="post">
+
 
             <div>
                 <h1>New Event</h1>
             </div>
+
             <div class="form-group">
                 <p><label>Event Name:<input name="event_name" class="form-control" placeholder="Event Name" maxlength="24"></label></p>
-            </div>
-            <div class="form-group">
+
                 <p><label>Machine Group:<select name="machine_group" id="group" class="form-control" required>
                     // Drop-down fills with data from Ajax request
                 </select></label></p>
+
                 <p><label>Clusters:<select name="clusters" id="cluster" class="form-control" required>
                     // Drop-down fills with data from Ajax request
                 </select></label></p>
-            </div>
-            <div class="form-group">
+
                 <p><label>Date:<input type="text" id="datepicker" name="date" class="form-control" placeholder="Date" required></label></p>
                 <p><label>Start Time:<input type="time" name="start_time" class="form-control" required></label></p>
-                <p><label>Time Offset:<input type="time" name="finish_time" class="form-control" required></label></p>
+                <p><label>Time Offset:<input type="time" name="time_offset" class="form-control" required></label></p>
+
+                <button name="form_submit" id="frm_sub" class="btn btn-primary" type="submit">Submit</button>
             </div>
-
-            <div class="row">
-
-                <div id="tableHeader">
-                    <h2>Event Data</h2>
-                </div>
-
-                <table id="eventTable" class="table">
-                    <thead>
-                    <tr>
-                        <th scope="col">Event ID</th>
-                        <th scope="col">Event Name</th>
-                    </tr>
-                    <tr>
-                        <td id="event_id" >ID</td>
-                        <td id="et_name" >Name</td>
-                    </tr>
-                    <tr>
-                        <th scope="col">Cluster</th>
-                        <th scope="col">Machine</th>
-                        <th scope="col">Date</th>
-                        <th scope="col">Time</th>
-                        <th scope="col">Offset</th>
-                        <th scope="col">Activate</th>
-                    </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
-            </div>
-
-            <button name="form_submit" id="frm_sub" class="btn btn-primary" type="submit">Submit</button>
         </form>
+
+        <div class="row">
+            <div id="tableHeader">
+                <h2>Event Data</h2>
+            </div>
+
+            <table id="eventTable" class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Event ID</th>
+                    <th scope="col">Event Name</th>
+                </tr>
+                <tr>
+                    <td id="event_id" >ID</td>
+                    <td id="et_name" >Name</td>
+                </tr>
+                <tr>
+                    <th scope="col">Cluster</th>
+                    <th scope="col">Machine</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Offset</th>
+                    <th scope="col">Activate</th>
+                </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
     </div>
 
 </div>

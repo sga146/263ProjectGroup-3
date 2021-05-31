@@ -1,11 +1,16 @@
 <?php
-$host = "127.0.0.1"; // Server Hostname
-$user = "root"; // Server User
-$pass = "mysql"; // User Password
-$datb = "tserver"; //Database Name
+
+/**
+ *  Defining constants for database access.
+ */
+
+const hostname = "127.0.0.1";
+const username = "root";
+const password = "mysql";
+const database = "tserver";
 
 
-$conn = mysqli_connect($host, $user, $pass, $datb);
+$conn = mysqli_connect(hostname, username, password, database);
 
 // Check Connection
 

@@ -1,8 +1,7 @@
 // This is where your client side code will go for the index.html page
 
 function login() {
-    hideElement("loginDiv")
-    showElement("mainDiv")
+    window.location.assign("homepage/home.html")
 }
 
 function logout() {
@@ -11,7 +10,7 @@ function logout() {
 }
 
 function newEvent() {
-    window.location.assign("new_event.html")
+    window.location.assign("../newEvents/new_event.html")
 }
 
 function viewEvents() {

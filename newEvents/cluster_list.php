@@ -3,7 +3,7 @@
 
 // Database Connection
 
-require_once "config.php";
+require_once "../database/config.php";
 
 /*
     Pull Cluster list from database.

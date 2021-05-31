@@ -3,7 +3,7 @@
 
 // Database Connection
 
-require_once "config.php";
+require_once "../database/config.php";
 
 /*  Pull Group list from database.
     To achieve this in a more simple manner a new view was created in the database.

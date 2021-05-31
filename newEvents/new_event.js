@@ -16,17 +16,14 @@ function logout() {
     window.location.assign("index.html")
 }
 
-/** Runs Onload functions required for the form.
-    This includes the jqueryUI functions for the date picker.
-
+/**
+ * Runs Onload functions required for the form.
+ * This includes the jqueryUI functions for the date picker.
  */
 
 $(document).ready( function(){
-    getMachineGroup();
+    getGroup();
     getClusters();
-});
-
-$(document).ready(function () {
     $("#datepicker").datepicker();
 });
 
@@ -34,8 +31,8 @@ $(document).ready(function () {
  *  AJAX Queries to fill dropdown on form.
  */
 
-function getMachineGroup() {
-    $.get("PHP_Functions/cluster_list.php", function (data) {
+function getGroup() {
+    $.get("cluster_list.php" , function (data) {
         var len = data.length;
         for(var i=0; i<len; i++){
             var id = data[i].id;
@@ -49,7 +46,7 @@ function getMachineGroup() {
 };
 
 function getClusters() {
-    $.get("PHP_Functions/machine_list.php", function (data) {
+    $.get("cluster_list.php" , function (data) {
         var len = data.length;
         for(var i=0; i<len; i++){
             var id = data[i].id;
@@ -66,6 +63,5 @@ function getClusters() {
  *  Function to fill table with event data
  */
 
-$(document).on("submit", '#frm_sub', null, function(event){
-
+$(document).on("submit", '#frm_sub', null, function(data){
 })

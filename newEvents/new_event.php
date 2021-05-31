@@ -1,32 +1,30 @@
 <?php
-// Database Connection
 
-require_once "PHP_Functions/config.php";
+/** Server Connection */
+require_once "../database/config.php";
 
-// Getting Data from Form
-if (isset($_GET['event_name'],
-    $_GET['machine_group'], $_GET['clusters'],
-    $_GET['date'], $_GET['start_time'],
-    $_GET['finish_time'])) {
+//  Getting Data from Form
+if (isset($_POST['event_name'],
+    $_POST['machine_group'], $_POST['clusters'],
+    $_POST['date'], $_POST['start_time'],
+    $_POST['finish_time'])) {
 
     // Setting responses to variables
-    $event_name = $_GET['event_name'];
-    $machine_group = $_GET['machine_group'];
-    $clusters = $_GET['clusters'];
-    $date = $_GET['date'];
-    $start_time = $_GET['start_time'];
-    $finish_time = $_GET['finish_time'];
+    $event_name = $_POST['event_name'];
+    $machine_group = $_POST['machine_group'];
+    $clusters = $_POST['clusters'];
+    $date = $_POST['date'];
+    $start_time = $_POST['start_time'];
+    $finish_time = $_POST['finish_time'];
 
     // Pushing data through appropriate functions
     $id = new_event($conn, $event_name);
     front_weekly($conn, $id, $date);
 
-
 }
-// Old function grabbed the next id through taking the max value and adding one.
+/*  Old function grabbed the next id through taking the max value and adding one.
 
-/*
- *  function next_event($conn) {
+    function next_event($conn) {
     $query = "SELECT MAX(event_id)+1 AS eventid FROM tserver.front_event";
     $result = mysqli_query($conn, $query);
     $row = mysqli_fetch_array($result);
@@ -53,8 +51,6 @@ function front_weekly($conn, $id, $date) {
     $year = $ddate->format("Y");
     $query = "CALL add_event_week('" . $id . "', '" . $week . "', '" . $year . "');'";
     $result = $conn->query($query);
-    echo "</br>";
-    echo $week . " and " . $year;
     echo "Check Weekly: " . $result;
     return $result;
 }
