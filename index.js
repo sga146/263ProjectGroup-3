@@ -10,8 +10,12 @@ function logout() {
     showElement("loginDiv")
 }
 
+function newEvent() {
+    window.location.assign("new_event.html")
+}
+
 function viewEvents() {
-    window.location.assign("view_events.html");
+    window.location.assign("view_event.html");
 }
 
 function hideElement(elementId) {
