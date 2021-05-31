@@ -32,36 +32,29 @@ $(document).ready( function(){
  */
 
 function getGroup() {
-    $.get("cluster_list.php" , function (data) {
+    $.get("machine_list.php" , function (data) {
         var len = data.length;
         for(var i=0; i<len; i++){
             var id = data[i].id;
-            var cluster = data[i].cluster_name;
-
-            var opt_str = "<option value='"+id+"'>"+cluster+"</option>";
-
-            $("#cluster").append(opt_str);
-        }
-    }, "JSON")
-};
-
-function getClusters() {
-    $.get("cluster_list.php" , function (data) {
-        var len = data.length;
-        for(var i=0; i<len; i++){
-            var id = data[i].id;
-            var group = data[i].group_name;
+            var group = data[i].group;
 
             var opt_str = "<option value='" + id + "'>" + group + "</option>";
 
             $("#group").append(opt_str);
         }
     }, "JSON")
-};
+}
 
-/**
- *  Function to fill table with event data
- */
+function getClusters() {
+    $.get("cluster_list.php" , function (data) {
+        var len = data.length;
+        for(var i=0; i<len; i++){
+            var id = data[i].id;
+            var cluster = data[i].cluster_name;
 
-$(document).on("submit", '#frm_sub', null, function(data){
-})
+            var opt_str = "<option value='" + id + "'>" + cluster + "</option>";
+
+            $("#cluster").append(opt_str);
+        }
+    }, "JSON")
+}

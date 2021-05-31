@@ -7,7 +7,7 @@ require_once "../database/config.php";
 if (isset($_POST['event_name'],
     $_POST['machine_group'], $_POST['clusters'],
     $_POST['date'], $_POST['start_time'],
-    $_POST['finish_time'])) {
+    $_POST['time_offset'])) {
 
     // Setting responses to variables
     $event_name = $_POST['event_name'];
@@ -15,11 +15,18 @@ if (isset($_POST['event_name'],
     $clusters = $_POST['clusters'];
     $date = $_POST['date'];
     $start_time = $_POST['start_time'];
-    $finish_time = $_POST['finish_time'];
+    $offset_time = $_POST['time_offset'];
+
+    // Changing date input into day, week, year
+    $ddate = new DateTime($date);
+    $week = $ddate->format("W");
+    $year = $ddate->format("Y");
+    $day =  $ddate->format("d");
 
     // Pushing data through appropriate functions
     $id = new_event($conn, $event_name);
     front_weekly($conn, $id, $date);
+    front_daily($conn, $id, $machine_group, $date, $start_time);
 
 }
 /*  Old function grabbed the next id through taking the max value and adding one.
@@ -46,17 +53,18 @@ function new_event($conn, $event_name) {
 
 // Inserts event into front weekly
 function front_weekly($conn, $id, $date) {
-    $ddate = new DateTime($date);
-    $week = $ddate->format("W");
-    $year = $ddate->format("Y");
-    $query = "CALL add_event_week('" . $id . "', '" . $week . "', '" . $year . "');'";
+
+    $query = "CALL add_event_week('" . $id . "', '" . $week . "', '" . $year . "');";
     $result = $conn->query($query);
     echo "Check Weekly: " . $result;
     return $result;
 }
 
-function front_daily() {
-
+function front_daily($conn, $id, $group, $day, $time) {
+    $query = "CALL add_daily('" . $id . "', '" . $group . "', '" . $day . "', '" . $time . "');";
+    $result = $conn->query($query);
+    echo "Check Weekly: " . $result;
+    return $result;
 }
 
 function front_action() {
@@ -72,5 +80,4 @@ function front_action() {
 
 // Insert into front_action - event id, time offset, cluster id, activate
 // Four statements, turning off/on clusters before and after tests
-
 

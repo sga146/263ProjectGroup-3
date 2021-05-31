@@ -26,7 +26,7 @@ while($row = mysqli_fetch_array($result)) {
     $id = $row['group_id'];
     $group_name = $row['machine_group'];
 
-    $return_arr[] = array("id" => $id, "group_name" => $group_name);
+    $return_arr[] = array("id" => $id, "group" => $group_name);
 }
 
 echo json_encode($return_arr);
