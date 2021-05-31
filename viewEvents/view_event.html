@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Links and Scripts -->
+    <link type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="view_event.js"></script>
+    <!-- Page Title -->
+    <title>View Events</title>
+</head>
+<body>
+<div class="container">
+
+    <div class="row" id="index_Header">
+        <div class="row" id="index_Head"></div>
+        <div class="col-11"><h1 style="text-align: center">Event Flow</h1></div>
+        <div class="col-1 align-self-center" id="logout_btn"><a class="btn btn-sm btn-secondary" style="width: 100%" onclick="logout()" role="button"><i class="bi bi-box-arrow-left"></i> Logout</a></div>
+
+        <div class="row" id="back_btn">
+
+        </div>
+    </div>
+
+    <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6" style="margin-top:20px; margin-bottom:20px;">
+                <form action="PHP_Functions/auto_complete.php">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="eventname" id="event" onkeyup="showHint(this.value)" placeholder="Search Events">
+                    </div>
+                </form>
+                <div>
+                    <p>Events: <span id="txtHint"></span></p>
+                </div>
+            </div>
+    </div>
+
+    <div id="event_Table" class="row">
+        <table id="eventTable" class="table" border="1" >
+            <thead>
+            <tr>
+                <th scope="col" width="5%">I.D.</th>
+                <th scope="col" width="25%">Event Name</th>
+                <th scope="col" width="20%">Date</th>
+                <th scope="col" width="10%">Time</th>
+                <th scope="col" width="5%">Info</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+
+
+</div>
+</body>
+</html>
