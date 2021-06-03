@@ -1,6 +1,7 @@
 // This is where your client side code will go for the index.html page
 
 function login() {
+
     hideElement("loginDiv")
     showElement("mainDiv")
 }
