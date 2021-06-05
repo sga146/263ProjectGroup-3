@@ -579,7 +579,7 @@ DELIMITER ;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`cza19`@`%` SQL SECURITY DEFINER */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `vw_front_group_client` AS select `r`.`room_name` AS `room_name`,`c`.`mac` AS `mac`,`c`.`serial_no` AS `serial_no`,`c`.`position` AS `position` from ((`front_client` `c` join `front_room` `r` on((`c`.`room_id` = `r`.`room_id`))) join `front_group` `g` on((`c`.`group_id` = `g`.`group_id`))) order by `r`.`room_name`,`c`.`position` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
@@ -602,13 +602,11 @@ DROP PROCEDURE IF EXISTS add_event_week;
 DELIMITER ;;
 
 CREATE PROCEDURE add_event_week(
-	IN name VARCHAR(255),
     IN id INT,
     IN week INT,
     IN year INT
 )
 BEGIN
-	insert into front_event (event_name, status) values (name, 1);
     insert into front_weekly (event_id, week_of_year, event_year) values (id, week, year);
 END ;;
 
@@ -672,3 +670,50 @@ PRIMARY KEY (user_id)
 
 INSERT INTO `user` (username, password)
 VALUES ('admin', '50e04656a6aa90c9c4d70f5a5ab2466c');
+
+--
+-- Adding In Views and Procedures
+--
+
+CREATE OR REPLACE VIEW 	vw_cluster_list AS
+SELECT
+	cluster_id, cluster_name
+FROM
+	front_cluster;
+    
+    
+CREATE OR REPLACE VIEW 	vw_machine_list AS
+SELECT
+	group_id, machine_group
+FROM
+	front_group;
+
+--
+-- Procedures
+--
+
+DROP PROCEDURE IF EXISTS add_event;
+
+DELIMITER ;;
+
+CREATE PROCEDURE add_event(
+	IN name VARCHAR(255)
+)
+BEGIN
+	insert into front_event (event_name, status) values (name, 1);
+END ;;
+
+DELIMITER ;
+
+DROP PROCEDURE IF EXISTS get_event_number;
+
+DELIMITER ;;
+
+CREATE PROCEDURE get_event_number()
+BEGIN
+	SELECT MAX(event_id) FROM front_event;
+END ;;
+
+DELIMITER ;
+
+

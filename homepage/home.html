@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Links and Scripts -->
+    <link type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script type="text/javascript" src="../index.js"></script>
+    <!-- Page Title -->
+    <title>Event Flow</title>
+</head>
+<body>
+<div class="container">
+
+    <div class="row" id="index_Header">
+        <div class="row" id="index_Head"></div>
+        <div class="col-11"><h1 style="text-align: center">Home</h1></div>
+        <div class="col-1 align-self-center" id="logout_btn"><a class="btn btn-sm btn-secondary" style="width: 100%" onclick="logout()" role="button"><i class="bi bi-box-arrow-left"></i> Logout</a></div>
+    </div>
+
+    <div class="row" id="index_btn">
+        <div class="col-6" id="View Events">
+            <a class="btn btn-lg btn-secondary" style="width: 100%" onclick="viewEvents()" role="button"><i class="bi bi-file-text"></i> View Events </a>
+        </div>
+        <div class="col-6" id="New Event">
+            <a class="btn btn-lg btn-secondary" style="width: 100%" onclick="newEvent()" role="button"><i class="bi bi-file-plus"></i> New Event </a>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
