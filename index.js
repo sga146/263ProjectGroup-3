@@ -1,7 +1,9 @@
 // This is where your client side code will go for the index.html page
 
 function login() {
-    window.location.assign("homepage/home.html")
+    hideElement("loginDiv")
+    showElement("mainDiv")
+
 }
 
 function logout() {
