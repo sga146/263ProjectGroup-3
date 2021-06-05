@@ -12,7 +12,7 @@ function logout() {
 }
 
 function newEvent() {
-    window.location.assign("../newEvents/new_event.html")
+    window.location.assign("new_event.html")
 }
 
 function viewEvents() {

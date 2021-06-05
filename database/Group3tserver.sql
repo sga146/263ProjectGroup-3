@@ -671,6 +671,9 @@ PRIMARY KEY (user_id)
 INSERT INTO `user` (username, password)
 VALUES ('admin', '50e04656a6aa90c9c4d70f5a5ab2466c');
 
+INSERT INTO `user` (username, password)
+VALUES ('asd', 'asd');
+
 --
 -- Adding In Views and Procedures
 --
@@ -688,9 +691,17 @@ SELECT
 FROM
 	front_group;
 
+CREATE OR REPLACE VIEW vw_user_list AS
+SELECT 
+	username, password
+FROM
+    user;
+
 --
 -- Procedures
 --
+
+
 
 DROP PROCEDURE IF EXISTS add_event;
 
@@ -701,6 +712,7 @@ CREATE PROCEDURE add_event(
 )
 BEGIN
 	insert into front_event (event_name, status) values (name, 1);
+    select last_insert_id();
 END ;;
 
 DELIMITER ;
@@ -716,4 +728,17 @@ END ;;
 
 DELIMITER ;
 
+DROP PROCEDURE IF EXISTS insert_user;
+
+DELIMITER ;;
+
+CREATE PROCEDURE insert_user(
+	IN user VARCHAR(255),
+    IN pass VARCHAR(255)
+)	
+BEGIN
+	insert into user (username, password) values (user, pass);
+END ;;
+
+DELIMITER ;
 

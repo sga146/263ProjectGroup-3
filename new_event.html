@@ -14,25 +14,24 @@
     <!-- Page Title -->
     <title>New Event</title>
 </head>
-<body>
+<body class="text-center">
 <div class="container">
 
     <div class="row" id="index_Header">
-        <div class="col-2 align-self-center" id="back_btn"><a class="btn btn-sm btn-secondary" style="width: 100%" onclick="homePage()" role="button"><i class="bi bi-arrow-left"></i> Back</a></div>
+        <div class="col-2 align-self-center" id="back_btn"><a class="btn btn-sm btn-secondary" style="width: 100%" onclick="index()" role="button"><i class="bi bi-arrow-left"></i> Back</a></div>
         <div class="col-8"><h1 style="text-align: center">New Event</h1></div>
         <div class="col-2 align-self-center" id="logout_btn"><a class="btn btn-sm btn-secondary" style="width: 100%" onclick="logout()" role="button"><i class="bi bi-box-arrow-left"></i> Logout</a></div>
     </div>
 
     <div class="row">
-        <form id="new_event" action="new_event.php" method="post">
+        <hr/> <!-- Separation Bar -->
+    </div>
 
-
-            <div>
-                <h1>New Event</h1>
-            </div>
+    <div class="row">
+        <form id="new_event">
 
             <div class="form-group">
-                <p><label>Event Name:<input name="event_name" class="form-control" placeholder="Event Name" maxlength="24"></label></p>
+                <p><label>Event Name:<input id="event_name" class="form-control" placeholder="Event Name" maxlength="24"></label></p>
 
                 <p><label>Machine Group:<select name="machine_group" id="group" class="form-control" required>
                     // Drop-down fills with data from Ajax request
@@ -43,40 +42,13 @@
                 </select></label></p>
 
                 <p><label>Date:<input type="text" id="datepicker" name="date" class="form-control" placeholder="Date" required></label></p>
-                <p><label>Start Time:<input type="time" name="start_time" class="form-control" required></label></p>
-                <p><label>Time Offset:<input type="time" name="time_offset" class="form-control" required></label></p>
+                <p><label>Start Time:<input type="time" name="start_time" id="start" class="form-control" required></label></p>
+                <p><label>Test Length:<input type="time" name="time_length" id="length" class="form-control" max="12:00" required></label></p>
 
-                <button name="form_submit" id="frm_sub" class="btn btn-primary" type="submit">Submit</button>
+                <input class="btn btn-secondary" id="user_submit" type="submit" form="new_event" value="Submit">
             </div>
         </form>
 
-        <div class="row">
-            <div id="tableHeader">
-                <h2>Event Data</h2>
-            </div>
-
-            <table id="eventTable" class="table">
-                <thead>
-                <tr>
-                    <th scope="col">Event ID</th>
-                    <th scope="col">Event Name</th>
-                </tr>
-                <tr>
-                    <td id="event_id" >ID</td>
-                    <td id="et_name" >Name</td>
-                </tr>
-                <tr>
-                    <th scope="col">Cluster</th>
-                    <th scope="col">Machine</th>
-                    <th scope="col">Date</th>
-                    <th scope="col">Time</th>
-                    <th scope="col">Offset</th>
-                    <th scope="col">Activate</th>
-                </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
-        </div>
     </div>
 
 </div>
