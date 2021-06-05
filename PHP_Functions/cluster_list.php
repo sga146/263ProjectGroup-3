@@ -19,7 +19,7 @@ require_once "../database/config.php";
 
 $return_arr = array();
 
-$query = "SELECT * FROM tserver.vw_cluster_list";
+$query = "SELECT * FROM vw_cluster_list";
 
 $result = mysqli_query($conn, $query);
 

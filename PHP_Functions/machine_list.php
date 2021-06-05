@@ -17,7 +17,7 @@ require_once "../database/config.php";
 
 $return_arr = array();
 
-$query = "SELECT * FROM tserver.vw_machine_list";
+$query = "SELECT * FROM vw_machine_list";
 
 $result = mysqli_query($conn, $query);
 
