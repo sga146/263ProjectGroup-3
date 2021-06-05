@@ -16,31 +16,47 @@
 <div class="container">
 
     <div class="row" id="index_Header">
-        <div class="row" id="index_Head"></div>
-        <div class="col-11"><h1 style="text-align: center">Event Flow</h1></div>
-        <div class="col-1 align-self-center" id="logout_btn"><a class="btn btn-sm btn-secondary" style="width: 100%" onclick="logout()" role="button"><i class="bi bi-box-arrow-left"></i> Logout</a></div>
-
-        <div class="row" id="back_btn">
-
-        </div>
+        <div class="col-2 align-self-center" id="back_btn"><a class="btn btn-sm btn-secondary" style="width: 100%" onclick="homepage()" role="button"><i class="bi bi-arrow-left"></i> Back</a></div>
+        <div class="col-8"><h1 style="text-align: center">View Event</h1></div>
+        <div class="col-2 align-self-center" id="logout_btn"><a class="btn btn-sm btn-secondary" style="width: 100%" onclick="logout()" role="button"><i class="bi bi-box-arrow-left"></i> Logout</a></div>
     </div>
 
     <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-6" style="margin-top:20px; margin-bottom:20px;">
-                <form action="PHP_Functions/auto_complete.php">
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="eventname" id="event" onkeyup="showHint(this.value)" placeholder="Search Events">
-                    </div>
-                </form>
-                <div>
-                    <p>Events: <span id="txtHint"></span></p>
+        <hr/> <!-- Separation Bar -->
+    </div>
+
+    <div class="row">
+
+        <div class="col-2"></div>
+
+        <div class="col-8 align-self-center">
+            <div role="group"><input style="width: 100%" id="eventSearch" class="btn btn-default" type="text" placeholder="Search"/></div>
+            <div class="dataTable_wrapper">
+                <!-- Patient listing table -->
+                <div class="table-responsive">
+                    <table class="table table table-striped table-bordered table-hover" id="searchTable">
+                        <thead>
+                        <tr>
+                            <th width="90%">Events</th>
+                            <th width="10%">Link</th>
+                        </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
                 </div>
             </div>
+        </div>
+
+        <div class="col-2"></div>
+
+    </div>
+
+    <div class="row">
+        <hr/> <!-- Separation Bar -->
     </div>
 
     <div id="event_Table" class="row">
-        <table id="eventTable" class="table" border="1" >
+        <table id="eventTable" class="table" border="1" style="text-align: center">
             <thead>
             <tr>
                 <th scope="col" width="5%">I.D.</th>
@@ -53,6 +69,24 @@
             <tbody></tbody>
         </table>
     </div>
+
+    <div id="detail_Table" class="row" style="display: none">
+        <table id="detailTable" class="table" border="1" style="text-align: center">
+            <thead>
+            <tr>
+                <th scope="col" width="5%">I.D.</th>
+                <th scope="col" width="25%">Event Name</th>
+                <th scope="col" width="20%">Machine Group</th>
+                <th scope="col" width="20%">Cluster</th>
+                <th scope="col" width="10%">Date</th>
+                <th scope="col" width="10%">Time</th>
+                <th scope="col" width="5%">Activate</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
 
 
 
