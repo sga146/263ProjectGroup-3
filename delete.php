@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once("config.php");
+require_once("database/config.php");
 $event_name ="";
 $machine_group = "";
 $clusters = "";
@@ -19,7 +19,7 @@ if (isset($_GET['delete_event'])) {
 
 if (isset($_GET['edit'])){
     $event_id = $_GET['edit'];
-    $result = conn->query("SELECT from * vw_front_event where event_id=$event_id" )or die($conn->error);
+    $result = $conn->query("SELECT from * vw_front_event where event_id=$event_id" )or die($conn->error);
     if (count($result)==1){
         $row = $result->fetch_array();
         $event_name = $row['event_name'];

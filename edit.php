@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="container">
-        <?php require_once("config.php");
+        <?php require_once("database/config.php");
        require_once("delete.php");
        $result = $conn ->query("select * from vw_front_event order by event_id desc") or die($conn->error);
         if (isset($_SESSION['message'])):
@@ -49,7 +49,7 @@
                         <a href="delete.php?delete=<?php echo $row['event_id']; ?>"
                             class="btn btn-danger">Delete</a>
                     </tr>
-                    <?php endwhile;?>
+                    <!--<?php// endwhile;?>-->
             </table>
 
         </div>
