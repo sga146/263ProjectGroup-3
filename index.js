@@ -14,7 +14,9 @@ function logout() {
 function newEvent() {
     window.location.assign("new_event.html")
 }
-
+function editEvent (){
+    window.location.assign("edit.php")
+}
 function viewEvents() {
     window.location.assign("view_event.html");
 }
